@@ -1,0 +1,360 @@
+/* General body styling */
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 50px 0px;
+    /* background-color: #e4dbbf; */
+    --color: #E1E1E1;
+    background-color: #F3F3F3;
+    background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent),
+        linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent);
+    background-size: 55px 55px;
+}
+
+
+
+/* Navigation Bar */
+nav {
+    background-color: #f0e5c4;
+    /* White background for a clean look */
+    box-shadow: 0px 4px 2px -2px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    position: fixed;
+    /* Fixed at the top */
+    top: 0;
+    width: 100%;
+    padding: 10px 0px;
+    z-index: 1000;
+    /* Ensure it stays on top */
+}
+
+.navbar {
+    /* Constrain the content width */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    /* Spacing inside the nav bar */
+}
+
+/* Logo Styles */
+.logo h1 {
+    font-family: 'Times New Roman', serif;
+    /* Elegant serif font for the logo */
+    font-size: 38px;
+    /* Slightly larger font for prominence */
+    color: #8b0000;
+    /* Dark red (wine color) */
+    margin: 0;
+}
+
+/* Navigation Links Styling */
+.nav-links {
+    list-style: none;
+    /* Remove bullet points */
+    display: flex;
+    /* Align links horizontally */
+    gap: 30px;
+    /* Space between the links */
+    margin: 0;
+}
+
+.nav-links li {
+    position: relative;
+    /* Necessary for underline effect */
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-weight: bold;
+    /* Remove default underline */
+    font-size: 22px;
+    /* Font size for the links */
+    color: #670000;
+    /* Dark red text color for links */
+    font-family: 'Times New Roman', serif;
+    /* Clean sans-serif font */
+    padding: 10px 0;
+    /* Padding around the links */
+    transition: color 0.3s ease;
+    /* Smooth transition for hover effect */
+}
+
+/* Hover effect: change color and show underline */
+.nav-links a:hover {
+    color: #670000;
+    /* Lighter red on hover */
+}
+
+.nav-links a::after {
+    content: '';
+    /* Create a pseudo-element for the underline */
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #670000;
+    /* Lighter wine color for underline */
+    bottom: -4px;
+    left: 0;
+    transform: scaleX(0);
+    /* Initially hidden */
+    transform-origin: right;
+    /* Start from the right on hover */
+    transition: transform 0.3s ease;
+    /* Smooth transition */
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+    /* Full underline on hover */
+    transform-origin: left;
+    /* Expand from the left on hover */
+}
+
+
+
+/* History Section */
+.timeline-section {
+    width: 100%;
+    padding: 50px 0px;
+    text-align: center;
+}
+
+.timeline-section h2 {
+    font-size: 36px;
+    color: #8b0000;
+    /* Wine color */
+    margin-bottom: 40px;
+}
+
+/* Timeline container */
+.timeline {
+    position: relative;
+    width: 95%;
+    margin: 0 auto;
+}
+
+/* Timeline items */
+.timeline-item {
+    display: flex;
+    margin-bottom: 40px;
+    position: relative;
+    width: 100%;
+}
+
+/* Timeline content (info card) */
+.timeline-content {
+    background-color: #ffffff;
+    border-radius: 8px;
+    width: 45%;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1;
+}
+
+.timeline-content h3 {
+    font-size: 20px;
+    color: #8b0000;
+    margin-bottom: 10px;
+}
+
+.timeline-content p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Hover effect for info cards */
+.timeline-content:hover {
+    transform: scale(1.05);
+    /* Slight expansion on hover */
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+    /* Stronger shadow on hover */
+}
+
+/* Left side milestones */
+.timeline-item.left {
+    justify-content: flex-start;
+}
+
+.timeline-item.left .timeline-content {
+    text-align: right;
+    padding-right: 15px;
+}
+
+/* Right side milestones */
+.timeline-item.right {
+    justify-content: flex-end;
+}
+
+.timeline-item.right .timeline-content {
+    text-align: left;
+    padding-left: 15px;
+}
+
+/* Vertical line (timeline) */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 8px;
+    height: 100%;
+    background-color: #8b0000;
+    /* Dark red vertical timeline bar */
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+/* Milestone circles */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 25px;
+    height: 25px;
+    background-color: #8b0000;
+    /* Wine color for circles */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+/* Position the circles for left and right milestones */
+.timeline-item.left::before {
+    top: 50%;
+}
+
+.timeline-item.right::before {
+    top: 50%;
+}
+
+/* Location Section Styling */
+.location-section {
+    width: 100%;
+    padding: 50px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.location-section h2 {
+    font-size: 32px;
+    color: #8b0000;
+    /* Wine color */
+    margin-bottom: 40px;
+}
+
+/* Location grid layout */
+.location-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Location items (each block) */
+.location-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Image container */
+.location-image {
+    width: 48%;
+    /* Almost half the width of the row */
+    margin-bottom: 20px;
+}
+
+.location-image img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for images */
+.location-image img:hover {
+    transform: scale(1.05);
+    /* Slight zoom on hover */
+}
+
+/* Text container */
+.location-text {
+    width: 48%;
+    /* Almost half the width of the row */
+    text-align: left;
+}
+
+.location-text h3 {
+    font-size: 24px;
+    color: #8b0000;
+    margin-bottom: 15px;
+}
+
+.location-text p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Alternating styles: for odd items, switch content sides */
+.location-item:nth-child(even) .location-image {
+    order: 2;
+}
+
+.location-item:nth-child(even) .location-text {
+    order: 1;
+}
+
+/* Ensure mobile responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+        /* Adjust padding for smaller screens */
+    }
+
+    .logo h1 {
+        font-size: 22px;
+        /* Smaller logo font size */
+    }
+
+    .nav-links {
+        gap: 15px;
+        /* Less space between items */
+    }
+
+    .nav-links a {
+        font-size: 14px;
+        /* Smaller font for mobile */
+    }
+
+    .timeline {
+        width: 90%;
+    }
+
+    .timeline-content {
+        padding: 5px;
+    }
+
+    .location-grid {
+        width: 90%;
+    }
+
+    .location-item {
+        flex-direction: column;
+        /* Stack vertically on smaller screens */
+        align-items: flex-start;
+    }
+
+    .location-image,
+    .location-text {
+        width: 100%;
+    }
+
+    .location-text {
+        text-align: left;
+    }
+}
